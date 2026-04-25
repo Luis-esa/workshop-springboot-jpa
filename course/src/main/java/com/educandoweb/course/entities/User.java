@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.io.Serial;
 
 @Entity
+@Table(name = "tb_user")
 public class User implements java.io.Serializable{
     @Serial
     private static final long serialVersionUID = 1L;
