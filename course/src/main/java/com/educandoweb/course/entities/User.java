@@ -2,6 +2,8 @@ package com.educandoweb.course.entities;
 import jakarta.persistence.*;
 
 import java.io.Serial;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_user")
@@ -16,6 +18,9 @@ public class User implements java.io.Serializable{
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public User() {
     }
@@ -68,15 +73,21 @@ public class User implements java.io.Serializable{
         this.password = password;
     }
 
-    @Override
-    public final boolean equals(Object o) {
-        if (!(o instanceof User user)) return false;
+    public List<Order> getOrders() {
+        return orders;
+    }
 
-        return id == user.id;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+        return id.equals(user.id);
     }
 
     @Override
     public int hashCode() {
-        return Long.hashCode(id);
+        return id.hashCode();
     }
+
 }
