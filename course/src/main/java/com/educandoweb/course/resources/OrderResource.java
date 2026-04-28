@@ -1,6 +1,6 @@
 package com.educandoweb.course.resources;
 
-import com.educandoweb.course.Service.OrderService;
+import com.educandoweb.course.service.OrderService;
 import com.educandoweb.course.entities.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
